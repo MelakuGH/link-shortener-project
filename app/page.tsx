@@ -38,9 +38,6 @@ export default async function Home() {
               Get Started Free
             </Button>
           </SignUpButton>
-          <Button size="lg" variant="outline">
-            View Demo
-          </Button>
         </div>
 
         <div className="text-sm text-muted-foreground mt-4">
