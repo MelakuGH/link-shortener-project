@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 import { dark, shadcn } from "@clerk/themes";
 import { Button } from "@/components/ui/button";
+import { RedirectToDashboard } from "@/components/auth/redirect-to-dashboard";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,6 +40,7 @@ export default function RootLayout({
         <ClerkProvider
           appearance={clerkTheme}
         >
+          <RedirectToDashboard />
           <header className="flex items-center justify-between px-6 py-4 bg-muted/80 dark:bg-muted/70 border-b border-border shadow-sm">
             <div className="text-lg font-semibold text-foreground">
               Link Shortner
