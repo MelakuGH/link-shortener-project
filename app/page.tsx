@@ -32,7 +32,7 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <SignUpButton>
+          <SignUpButton mode="modal">
             <Button size="lg" className="gap-2">
               <Link2 className="w-5 h-5" />
               Get Started Free
@@ -197,7 +197,7 @@ export default async function Home() {
           <p className="text-lg opacity-90 mb-8">
             Join thousands of users who are creating and tracking their links with confidence
           </p>
-          <SignUpButton>
+          <SignUpButton mode="modal">
             <Button
               size="lg"
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { dark, shadcn } from "@clerk/themes";
 import { Button } from "@/components/ui/button";
 import "./globals.css";
 
@@ -13,6 +14,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const clerkTheme = {
+  ...shadcn,
+  baseTheme: dark,
+};
 
 export const metadata: Metadata = {
   title: "Link Shortener - Create & Track Short URLs",
@@ -30,7 +36,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex min-h-full flex-col bg-background text-foreground">
-        <ClerkProvider>
+        <ClerkProvider
+          appearance={clerkTheme}
+        >
           <header className="flex items-center justify-between px-6 py-4 bg-muted/80 dark:bg-muted/70 border-b border-border shadow-sm">
             <div className="text-lg font-semibold text-foreground">
               Link Shortner
@@ -38,12 +46,12 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <Show when="signed-out">
                 <div className="flex items-center gap-2">
-                  <SignInButton>
+                  <SignInButton mode="modal">
                     <Button size="sm" variant="outline">
                       Sign in
                     </Button>
                   </SignInButton>
-                  <SignUpButton>
+                  <SignUpButton mode="modal">
                     <Button size="sm">Sign up</Button>
                   </SignUpButton>
                 </div>
